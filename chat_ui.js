@@ -3,6 +3,8 @@ let chat = null
 let user_id = null
 let is_user_verified = false
 
+console.log('Yo')
+
 ids = [
 	'Catan_Special_Number',
 	'Expected_Num_Boxes_with_Coupons',
