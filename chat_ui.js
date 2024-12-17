@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	})
 
 	const data = await dataPromise
+	console.log(data)
 	if (!data) return
 
 	document.querySelectorAll('.insert-problem').forEach((el) => {
