@@ -3,46 +3,54 @@ let chat = null
 let user_id = null
 let is_user_verified = false
 
-ids = ['Catan_Special_Number', 'Expected_Num_Boxes_with_Coupons', 'Test_Problem'];
+ids = [
+	'Catan_Special_Number',
+	'Expected_Num_Boxes_with_Coupons',
+	'Test_Problem',
+]
 
 //run this code once, copy problem ids from console, insert them to code, and comment following lines of code afterwards
-function getIDS(){
-    document.addEventListener('DOMContentLoaded', () => {
-    let containers = document.getElementsByClassName('insert-problem');
-    if(containers.length == 0){
-        return;
-    }
-    let ids = [];
-    for(let i = 0; i < containers.length; i++) {
-        let container = containers[i];
-        let id = container.getAttribute("data-id")
-        if (!id) {
-            containers[i].innerHTML = "No problem id reference :(";
-            continue;
-        }
-        ids.push(id);
-    }
-    console.log(ids)
-    })
+function getIDS() {
+	document.addEventListener('DOMContentLoaded', () => {
+		let containers = document.getElementsByClassName('insert-problem')
+		if (containers.length == 0) {
+			return
+		}
+		let ids = []
+		for (let i = 0; i < containers.length; i++) {
+			let container = containers[i]
+			let id = container.getAttribute('data-id')
+			if (!id) {
+				containers[i].innerHTML = 'No problem id reference :('
+				continue
+			}
+			ids.push(id)
+		}
+		console.log(ids)
+	})
 }
 getIDS()
 
+async function fetchProblems(serverLink, ids) {
+	try {
+		const response = await fetch(serverLink + 'getProblems', {
+			method: 'POST',
+			body: JSON.stringify({ ids: ids }),
+			headers: { 'Content-Type': 'application/json' },
+		})
 
-const dataPromise = fetch(serverLink + 'getProblems', {
-	method: 'POST',
-	body: JSON.stringify({ ids: ids }),
-	headers: { 'Content-Type': 'application/json' },
-})
-	.then((response) => {
 		if (!response.ok) {
 			console.error(`HTTPS error! status: ${response.status}`)
 			return null
 		}
-		return response.json()
-	})
-	.catch((error) => {
-		console.error(error)
-	})
+
+		const data = await response.json()
+		return data
+	} catch (error) {
+		console.error('Error fetching data:', error)
+		return null
+	}
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
 	window.$memberstackDom.getCurrentMember().then((response) => {
@@ -52,9 +60,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 		}
 	})
 
-	const data = await dataPromise
-	console.log(data)
-	if (!data) return
+	let data = null
+
+	;// Usage
+	(async () => {
+		data = await fetchProblems(serverLink, ids)
+		console.log('Fetched Problems:', data)
+	})()
 
 	document.querySelectorAll('.insert-problem').forEach((el) => {
 		let id = el.innerText.replace(/\s+/g, '')
