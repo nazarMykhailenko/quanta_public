@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	
 	document.querySelectorAll('.insert-problem').forEach((el) => {
     let id = el.innerText.replace(/\s+/g, '');
+		console.log(id)
     if (!data[id]) { // 'data' is null or undefined here
         el.innerHTML = `Failed to load element with id ${id}`;
         return;
