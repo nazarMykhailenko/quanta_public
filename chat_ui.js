@@ -10,26 +10,26 @@ ids = [
 ]
 
 //run this code once, copy problem ids from console, insert them to code, and comment following lines of code afterwards
-function getIDS() {
-	document.addEventListener('DOMContentLoaded', () => {
-		let containers = document.getElementsByClassName('insert-problem')
-		if (containers.length == 0) {
-			return
-		}
-		let ids = []
-		for (let i = 0; i < containers.length; i++) {
-			let container = containers[i]
-			let id = container.getAttribute('data-id')
-			if (!id) {
-				containers[i].innerHTML = 'No problem id reference :('
-				continue
-			}
-			ids.push(id)
-		}
-		console.log(ids)
-	})
-}
-getIDS()
+// function getIDS() {
+// 	document.addEventListener('DOMContentLoaded', () => {
+// 		let containers = document.getElementsByClassName('insert-problem')
+// 		if (containers.length == 0) {
+// 			return
+// 		}
+// 		let ids = []
+// 		for (let i = 0; i < containers.length; i++) {
+// 			let container = containers[i]
+// 			let id = container.getAttribute('data-id')
+// 			if (!id) {
+// 				containers[i].innerHTML = 'No problem id reference :('
+// 				continue
+// 			}
+// 			ids.push(id)
+// 		}
+// 		console.log(ids)
+// 	})
+// }
+// getIDS()
 
 async function fetchProblems(serverLink, ids) {
 	try {
@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 		data = await fetchProblems(serverLink, ids)
 		console.log('Fetched Problems:', data)
 	})()
+
+	console.log(data)
 
 	document.querySelectorAll('.insert-problem').forEach((el) => {
 		let id = el.innerText.replace(/\s+/g, '')
