@@ -70,14 +70,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 		console.log('Fetched Problems:', data)
 	})()
 
-	console.log(data)
-
+	
 	document.querySelectorAll('.insert-problem').forEach((el) => {
-		let id = el.innerText.replace(/\s+/g, '')
-		if (!data[id]) {
-			el.innerHTML = `Failed to load element with id ${id}`
-			return
-		}
+    let id = el.innerText.replace(/\s+/g, '');
+    if (!data[id]) { // 'data' is null or undefined here
+        el.innerHTML = `Failed to load element with id ${id}`;
+        return;
+    }
 
 		let problemName = id.replace(/_/g, ' ')
 		let img_src = `https://cdn.prod.website-files.com/6568bfe66e016172daa08150/66ede06843f101bc518e0798_submit_icon.svg`
