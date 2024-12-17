@@ -3,7 +3,7 @@ let chat = null
 let user_id = null
 let is_user_verified = false
 
-console.log('code is running')
+ids = ['Catan_Special_Number', 'Expected_Num_Boxes_with_Coupons', 'Test_Problem'];
 
 //run this code once, copy problem ids from console, insert them to code, and comment following lines of code afterwards
 function getIDS(){
