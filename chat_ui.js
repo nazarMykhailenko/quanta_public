@@ -55,6 +55,9 @@ async function fetchProblems(serverLink, ids) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+	let user_id = null
+	let is_user_verified = null
+
 	window.$memberstackDom.getCurrentMember().then((response) => {
 		if (response) {
 			user_id = response.data.id
@@ -64,38 +67,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	let data = null
 
-	;// Usage
-	(async () => {
+	// Fetch problems and ensure data is available before processing
+	try {
 		data = await fetchProblems(serverLink, ids)
 		console.log('Fetched Problems:', data)
-	})()
 
-	
-	document.querySelectorAll('.insert-problem').forEach((el) => {
-    let id = el.innerText.replace(/\s+/g, '');
-		console.log(id, data)
-    if (!data[id]) { // 'data' is null or undefined here
-        el.innerHTML = `Failed to load element with id ${id}`;
-        return;
-    }
+		// Process the elements only after data is fetched
+		document.querySelectorAll('.insert-problem').forEach((el) => {
+			let id = el.innerText.replace(/\s+/g, '')
+			console.log(id, data)
 
-		let problemName = id.replace(/_/g, ' ')
-		let img_src = `https://cdn.prod.website-files.com/6568bfe66e016172daa08150/66ede06843f101bc518e0798_submit_icon.svg`
-		el.innerHTML = `
-                <p class="edu-problem-name-and-num">${problemName}</p>
-                <p class="edu-p">${data[id]}</p>
-                <img src="${img_src}" class="sbmt-button" data-id="${id}" onclick="openChat(event)">
-                `
-		try {
-			MathJax.startup.promise
-				.then(() => {
-					MathJax.typeset([el])
-				})
-				.catch((err) => console.log('MathJax initialization failed:', err))
-		} catch (e) {
-			console.error('MathJax initialization failed:', e)
-		}
-	})
+			if (!data[id]) {
+				// Check if data for the id exists
+				el.innerHTML = `Failed to load element with id ${id}`
+				return
+			}
+
+			let problemName = id.replace(/_/g, ' ')
+			let img_src = `https://cdn.prod.website-files.com/6568bfe66e016172daa08150/66ede06843f101bc518e0798_submit_icon.svg`
+			el.innerHTML = `
+							<p class="edu-problem-name-and-num">${problemName}</p>
+							<p class="edu-p">${data[id]}</p>
+							<img src="${img_src}" class="sbmt-button" data-id="${id}" onclick="openChat(event)">
+					`
+
+			try {
+				MathJax.startup.promise
+					.then(() => {
+						MathJax.typeset([el])
+					})
+					.catch((err) => console.log('MathJax initialization failed:', err))
+			} catch (e) {
+				console.error('MathJax initialization failed:', e)
+			}
+		})
+	} catch (error) {
+		console.error('Error fetching problems:', error)
+	}
 })
 
 function openChat(ev) {
