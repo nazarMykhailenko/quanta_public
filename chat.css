@@ -2,8 +2,7 @@
 	position: fixed;
 	bottom: 20px;
 	right: 20px; /* Position in the middle horizontally */
-	width: 95%; /* Slightly increase width */
-	max-width: 1440px; /* Increase max-width for larger layout */
+	width: auto; /* Slightly increase width */
 	background-color: #f9f9f9; /* Softer background color */
 	border: 1px solid #ccc; /* Lighter border for subtlety */
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for a modern feel */
@@ -11,9 +10,14 @@
 	flex-direction: column;
 	padding: 20px; /* Slightly larger padding for spaciousness */
 	border-radius: 16px; /* Slightly larger rounding for a modern touch */
+	z-index: 1000; /* Ensure it is above other elements */
+}
+
+#inputDiv {
+	width: 95%;
+	max-width: 1440px;
 	max-height: 75%; /* Increased max-height for better usability */
 	overflow-y: auto;
-	z-index: 1000; /* Ensure it is above other elements */
 }
 
 #submitHeader {
@@ -147,12 +151,12 @@ p {
 
 #submit-btn {
 	width: auto; /* Let the button size adjust to its content */
-	padding: 10px 32px; /* Smaller padding for compact size */
+	padding: 10px 64px; /* Smaller padding for compact size */
 	background-color: #374b68; /* Button background color */
 	color: #fff; /* Button text color */
 	border: none; /* Remove default borders */
 	border-radius: 6px; /* Slight rounding for modern look */
-	font-size: 14px; /* Slightly smaller font size */
+	font-size: 16px; /* Slightly smaller font size */
 	font-weight: 500; /* Maintain bold text */
 	cursor: pointer;
 	transition: background-color 0.3s ease, transform 0.2s ease;
