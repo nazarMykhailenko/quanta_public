@@ -20,12 +20,6 @@
 #responseBody {
 	max-width: 600px; /* Set a maximum width for the response content */
 	margin: 0 auto; /* Center align the response body */
-	padding: 10px;
-	background-color: #fdfdfd; /* Light background to make it stand out */
-	border: 1px solid #eaeaea; /* Subtle border for separation */
-	border-radius: 8px; /* Rounded corners for a modern look */
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-	word-wrap: break-word; /* Ensure long text wraps properly */
 }
 
 /* For inputDiv screen */
