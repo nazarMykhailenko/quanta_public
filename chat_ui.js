@@ -190,7 +190,14 @@ function showChatPage(pageID) {
 		screen.style.display = 'none'
 	})
 
-	if (pageID == 'inputDiv') {
+	// Adjust chat window width based on the active page
+	if (pageID === 'inputDiv') {
+		chat.window.classList.add('inputDiv-active') // Add class for inputDiv
+	} else {
+		chat.window.classList.remove('inputDiv-active') // Remove class for other divs
+	}
+
+	if (pageID === 'inputDiv') {
 		chat.thnkFeedback.style.display = 'none'
 		for (let id of ['thumb-up-btn', 'thumb-down-btn']) {
 			let el = document.getElementById(id)
