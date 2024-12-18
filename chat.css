@@ -1,10 +1,9 @@
 #chatWindow {
 	position: fixed;
 	bottom: 20px;
-	left: 50%; /* Position in the middle horizontally */
-	transform: translateX(-50%); /* Center horizontally */
+	right: 20px; /* Position in the middle horizontally */
 	width: 95%; /* Slightly increase width */
-	max-width: 1300px; /* Increase max-width for larger layout */
+	max-width: 1440px; /* Increase max-width for larger layout */
 	background-color: #f9f9f9; /* Softer background color */
 	border: 1px solid #ccc; /* Lighter border for subtlety */
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for a modern feel */
@@ -15,6 +14,11 @@
 	max-height: 75%; /* Increased max-height for better usability */
 	overflow-y: auto;
 	z-index: 1000; /* Ensure it is above other elements */
+}
+
+#submitHeader {
+	font-size: 18px;
+	margin-bottom: 8px;
 }
 
 .close-chat-btn {
@@ -43,7 +47,7 @@
 
 #solution-input {
 	width: 100%;
-	min-height: 120px; /* Slightly larger height for better usability */
+	min-height: 200px; /* Slightly larger height for better usability */
 	margin-bottom: 15px; /* Add space between input and buttons */
 	flex: 1 1 auto;
 	padding: 10px; /* Add padding for better text input experience */
@@ -143,7 +147,7 @@ p {
 
 #submit-btn {
 	width: auto; /* Let the button size adjust to its content */
-	padding: 8px 16px; /* Smaller padding for compact size */
+	padding: 10px 32px; /* Smaller padding for compact size */
 	background-color: #374b68; /* Button background color */
 	color: #fff; /* Button text color */
 	border: none; /* Remove default borders */
@@ -153,7 +157,6 @@ p {
 	cursor: pointer;
 	transition: background-color 0.3s ease, transform 0.2s ease;
 	align-self: flex-start; /* Align the button to the left */
-	margin-top: 10px; /* Add spacing above the button */
 }
 
 #submit-btn:hover {
