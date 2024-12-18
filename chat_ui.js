@@ -231,6 +231,7 @@ function sendSolution(ev) {
 		signal: chat.controller.signal,
 	})
 		.then((response) => {
+			console.log(response)
 			chat.status = 'checked'
 			if (!response.ok) {
 				console.error(`HTTP error! status: ${response.status}`)
