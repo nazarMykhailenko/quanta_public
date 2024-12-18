@@ -252,13 +252,18 @@ function sendSolution(ev) {
 			for (let [key, value] of Object.entries(data.response)) {
 				console.log(key, value)
 
-				// Check if key length exceeds 30 characters
+				// Format key: replace underscores with spaces and capitalize each word
+				const formattedKey = key
+					.replace(/_/g, ' ') // Replace underscores with spaces
+					.replace(/\b\w/g, (char) => char.toUpperCase()) // Capitalize each word
+
+				// Check if value length exceeds 30 characters
 				const blockClass =
-					key.length > 30 ? 'response-block long' : 'response-block'
+					value.length > 30 ? 'response-block long' : 'response-block'
 
 				html += `
 						<div class="${blockClass}">
-								<h3 class="response-title">${key}:</h3>
+								<h3 class="response-title">${formattedKey}:</h3>
 								<p class="response-field">${value}</p>
 						</div>
 				`

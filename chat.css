@@ -131,12 +131,6 @@
 	display: none;
 }
 
-p {
-	white-space: pre-wrap;
-	line-height: 1.6; /* Improve readability */
-	margin: 0 0 10px; /* Add consistent spacing */
-}
-
 .sbmt-button {
 	width: 20px; /* Slightly larger for better clickability */
 	height: 20px;
