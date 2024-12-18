@@ -1,18 +1,18 @@
 #chatWindow {
 	position: fixed;
 	bottom: 20px;
-	right: 20px;
-	width: 90%;
-	max-width: 1200px; /* Slightly reduce max-width for better layout */
-	margin: 0px auto;
+	left: 50%; /* Position in the middle horizontally */
+	transform: translateX(-50%); /* Center horizontally */
+	width: 95%; /* Slightly increase width */
+	max-width: 1300px; /* Increase max-width for larger layout */
 	background-color: #f9f9f9; /* Softer background color */
 	border: 1px solid #ccc; /* Lighter border for subtlety */
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for a modern feel */
 	display: flex;
 	flex-direction: column;
-	padding: 15px;
-	border-radius: 12px; /* Slightly larger rounding for a modern touch */
-	max-height: 70%; /* Increased max-height for better usability */
+	padding: 20px; /* Slightly larger padding for spaciousness */
+	border-radius: 16px; /* Slightly larger rounding for a modern touch */
+	max-height: 75%; /* Increased max-height for better usability */
 	overflow-y: auto;
 	z-index: 1000; /* Ensure it is above other elements */
 }
@@ -139,4 +139,24 @@ p {
 	background-color: #fafafa; /* Light background for distinction */
 	border: 1px solid #eee; /* Subtle border */
 	border-radius: 6px;
+}
+
+#submit-btn {
+	width: auto; /* Let the button size adjust to its content */
+	padding: 8px 16px; /* Smaller padding for compact size */
+	background-color: #374b68; /* Button background color */
+	color: #fff; /* Button text color */
+	border: none; /* Remove default borders */
+	border-radius: 6px; /* Slight rounding for modern look */
+	font-size: 14px; /* Slightly smaller font size */
+	font-weight: 500; /* Maintain bold text */
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	align-self: flex-start; /* Align the button to the left */
+	margin-top: 10px; /* Add spacing above the button */
+}
+
+#submit-btn:hover {
+	background-color: #4f688e; /* Change color on hover */
+	transform: scale(1.05); /* Subtle zoom effect */
 }
