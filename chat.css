@@ -3,31 +3,39 @@
 	bottom: 20px;
 	right: 20px;
 	width: 90%;
-	max-width: 1440px;
-	background-color: #f0f0f0; /* */
-	border: 1px solid #ddd;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 1200px; /* Slightly reduce max-width for better layout */
+	margin: 0px auto;
+	background-color: #f9f9f9; /* Softer background color */
+	border: 1px solid #ccc; /* Lighter border for subtlety */
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow for a modern feel */
 	display: flex;
 	flex-direction: column;
-	padding: 10px;
-	border-radius: 10px;
-	max-height: 60%;
+	padding: 15px;
+	border-radius: 12px; /* Slightly larger rounding for a modern touch */
+	max-height: 70%; /* Increased max-height for better usability */
 	overflow-y: auto;
+	z-index: 1000; /* Ensure it is above other elements */
 }
 
 .close-chat-btn {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 12px;
+	right: 12px;
 	background-color: transparent;
 	border: none;
-	font-size: 16px;
-	color: #808080;
+	font-size: 18px; /* Slightly larger for better clickability */
+	color: #666; /* Darker grey for better contrast */
 	cursor: pointer;
-	padding: 0;
+	padding: 5px;
 	line-height: 1;
-	z-index: 1;
+	z-index: 10;
+	transition: color 0.2s ease;
 }
+
+.close-chat-btn:hover {
+	color: #333; /* Darker hover effect */
+}
+
 /* Hide other screens by default */
 .chat-screen {
 	display: none;
@@ -35,64 +43,72 @@
 
 #solution-input {
 	width: 100%;
-	height: 100px;
-	margin-bottom: 10px;
-	flex: 1 1 0;
+	min-height: 120px; /* Slightly larger height for better usability */
+	margin-bottom: 15px; /* Add space between input and buttons */
+	flex: 1 1 auto;
+	padding: 10px; /* Add padding for better text input experience */
+	border: 1px solid #ddd; /* Border for better visual clarity */
+	border-radius: 6px;
+	resize: vertical; /* Allow vertical resizing for flexibility */
 }
 
 .btn {
 	width: 100%;
-	padding: 10px;
-	background-color: #374b68; /* Button background color */
-	color: white;
+	padding: 12px; /* Slightly larger padding for better click area */
+	background-color: #374b68; /* Keep button background color */
+	color: #fff;
 	border: none;
-	border-radius: 5px;
+	border-radius: 6px; /* Consistent border radius */
+	font-size: 16px; /* Improved readability */
+	font-weight: 500; /* Slightly bolder text */
 	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
 	background-color: #4f688e;
-}
-
-
-#feedback-buttons {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 10px;
+	transform: scale(1.02); /* Subtle hover effect */
 }
 
 #feedback-buttons {
 	display: flex;
-	justify-content: flex-start; /* Align buttons to the left */
-	gap: 10px; /* Small gap between buttons */
-	margin-top: 10px;
+	justify-content: flex-start;
+	gap: 15px; /* Increase gap for better spacing */
+	margin-top: 15px;
 }
 
 /* Style for the feedback buttons */
 #thumb-up-btn,
 #thumb-down-btn {
-	background-color: transparent; /* Transparent background */
-	color: #3898ec; /* Thumb icon color */
-	border: 2px solid #3898ec; /* Border around button */
-	width: 40px;
-	height: 40px;
-	border-radius: 5px;
+	background-color: transparent;
+	color: #3898ec; /* Keep consistent icon color */
+	border: 2px solid #3898ec;
+	width: 45px; /* Slightly larger button */
+	height: 45px;
+	border-radius: 50%; /* Circular buttons for modern feel */
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#thumb-up-btn:hover,
+#thumb-down-btn:hover {
+	background-color: #eaf6ff; /* Subtle hover background */
+	transform: scale(1.1); /* Slight zoom on hover */
 }
 
 #thumb-up-btn:disabled,
 #thumb-down-btn:disabled {
-	background-color: #f0f0f0; /* Grey background when disabled */
-	border-color: #ddd; /* Change border when disabled */
-	color: #bbb; /* Change icon color when disabled */
-	cursor: auto;
+	background-color: #f9f9f9;
+	border-color: #ddd;
+	color: #bbb;
+	cursor: not-allowed;
 }
 
 .pressed {
-	background-color: #e6f2ff !important;
+	background-color: #e6f2ff !important; /* Keep consistent pressed effect */
 }
 
 ::-webkit-resizer {
@@ -101,20 +117,26 @@
 
 p {
 	white-space: pre-wrap;
+	line-height: 1.6; /* Improve readability */
+	margin: 0 0 10px; /* Add consistent spacing */
 }
 
 .sbmt-button {
-	width: 15px;
-	height: 15px;
-	transition: transform 0.3s ease;
+	width: 20px; /* Slightly larger for better clickability */
+	height: 20px;
+	transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .sbmt-button:hover {
 	cursor: pointer;
 	transform: scale(1.3);
+	filter: brightness(1.2); /* Enhance hover effect */
 }
 
 .response-field {
-	margin-bottom: 0;
-	margin-top: 0;
+	margin: 10px 0; /* Uniform spacing */
+	padding: 10px; /* Add padding for better structure */
+	background-color: #fafafa; /* Light background for distinction */
+	border: 1px solid #eee; /* Subtle border */
+	border-radius: 6px;
 }
