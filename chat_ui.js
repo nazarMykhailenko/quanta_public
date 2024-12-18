@@ -108,7 +108,7 @@ function openChat(ev) {
 		chatWindow = document.createElement('div')
 		chatWindow.id = 'chatWindow'
 		chatWindow.innerHTML = `
-        <span class="close-chat-btn" onclick="closeWindow(event)">✖</span>
+        <span class="close-chat-btn" onclick="closeWindow(event)">&times;</span>
 
     <div id="inputDiv" class="chat-screen">
         <h6 id="submitHeader">Submit your solution to ${problemName}:</h6>
@@ -251,12 +251,17 @@ function sendSolution(ev) {
 			let html = ``
 			for (let [key, value] of Object.entries(data.response)) {
 				console.log(key, value)
+
+				// Check if key length exceeds 30 characters
+				const blockClass =
+					key.length > 30 ? 'response-block long' : 'response-block'
+
 				html += `
-                    <div class="response-block">
-                        <h3 class="response-title">${key}:</h3>
-                        <p class="response-field">${value}</p>
-                    </div>
-                    `
+						<div class="${blockClass}">
+								<h3 class="response-title">${key}:</h3>
+								<p class="response-field">${value}</p>
+						</div>
+				`
 			}
 			chat.responseBody.innerHTML = html
 			showChatPage('responseDIV')

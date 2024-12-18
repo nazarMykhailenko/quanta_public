@@ -154,13 +154,13 @@ p {
 	align-items: center;
 	gap: 10px;
 }
+.response-block.long {
+	flex-direction: column;
+}
 
 .response-title {
 	font-size: 20px;
 }
-
-/* .response-field {
-} */
 
 #submit-btn {
 	width: auto; /* Let the button size adjust to its content */
