@@ -1,7 +1,7 @@
 const serverLink = 'http://localhost:3000/'
 let chat = null
 let user_id = null
-let is_user_verified = false
+let is_user_verified = null
 
 ids = [
 	'Catan_Special_Number',
@@ -53,16 +53,12 @@ async function fetchProblems(serverLink, ids) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-	let user_id = null
-	let is_user_verified = null
-
 	window.$memberstackDom.getCurrentMember().then((response) => {
 		if (response) {
 			user_id = response.data.id
 			is_user_verified = response.data.verified
-			console.log(response)
+			console.log('here', user_id, is_user_verified)
 		}
-		console.log('response')
 	})
 
 	let data = null
