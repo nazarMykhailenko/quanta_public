@@ -28,15 +28,6 @@
 	word-wrap: break-word; /* Ensure long text wraps properly */
 }
 
-.response-field {
-	margin: 10px 0; /* Spacing between fields */
-	padding: 8px 12px; /* Inner padding for better readability */
-	background-color: #fafafa; /* Slightly distinct background */
-	border: 1px solid #ddd; /* Border for clarity */
-	border-radius: 6px; /* Consistent rounded corners */
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft shadow effect */
-}
-
 /* For inputDiv screen */
 #chatWindow.inputDiv-active {
 	width: 95%; /* Expand width for inputDiv */
