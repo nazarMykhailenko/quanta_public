@@ -3,8 +3,6 @@ let chat = null
 let user_id = null
 let is_user_verified = false
 
-console.log('Yo')
-
 ids = [
 	'Catan_Special_Number',
 	'Expected_Num_Boxes_with_Coupons',
@@ -62,7 +60,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		if (response) {
 			user_id = response.data.id
 			is_user_verified = response.data.verified
+			console.log(response)
 		}
+		console.log('response')
 	})
 
 	let data = null
@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 		// Process the elements only after data is fetched
 		document.querySelectorAll('.insert-problem').forEach((el) => {
 			let id = el.innerText.replace(/\s+/g, '')
-			console.log(id, data)
 
 			if (!data[id]) {
 				// Check if data for the id exists
@@ -117,7 +116,7 @@ function openChat(ev) {
 
     <div id="inputDiv" class="chat-screen">
         <h6 id="submitHeader">Submit your solution to ${problemName}:</h6>
-        <textarea id="solution-input" onkeydown="handleKeydown(event)" placeholder="Submit your solution..."></textarea>
+        <textarea id="solution-input" onkeydown="handleKeydown(event)" placeholder="Type your solution, feel free to use LaTeX"></textarea>
         <button id="submit-btn" class="btn" onclick="sendSolution(event)">Send</button>
     </div>
 
