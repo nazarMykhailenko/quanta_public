@@ -250,9 +250,10 @@ function sendSolution(ev) {
 			if (!data.response) return
 			let html = ``
 			for (let [key, value] of Object.entries(data.response)) {
+				console.log(key, value)
 				html += `
-                    <div>
-                        <h3 class="response-field">${key}:</h3>
+                    <div class="response-block">
+                        <h3 class="response-title">${key}:</h3>
                         <p class="response-field">${value}</p>
                     </div>
                     `
