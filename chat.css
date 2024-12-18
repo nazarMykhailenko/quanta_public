@@ -170,3 +170,11 @@ p {
 	background-color: #4f688e; /* Change color on hover */
 	transform: scale(1.05); /* Subtle zoom effect */
 }
+
+#errorDiv {
+	padding-top: 10px;
+}
+
+#error-message {
+	max-width: 500px;
+}
