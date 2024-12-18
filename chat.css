@@ -153,8 +153,7 @@
 }
 .response-block.long {
 	flex-direction: column;
-	align-items: start;
-	justify-content: center;
+	align-items: start !important;
 }
 .response-title {
 	font-size: 20px;
