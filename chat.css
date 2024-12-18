@@ -1,8 +1,7 @@
 #chatWindow {
 	position: fixed;
 	bottom: 20px;
-	left: 50%;
-	transform: translateX(-50%);
+	right: 20px;
 	width: auto; /* Default width */
 	max-width: 1440px; /* Max-width for normal screens */
 	background-color: #f9f9f9;
@@ -21,7 +20,7 @@
 /* For inputDiv screen */
 #chatWindow.inputDiv-active {
 	width: 95%; /* Expand width for inputDiv */
-	max-width: none; /* Disable max-width for full responsiveness */
+	max-width: 1440px; /* Disable max-width for full responsiveness */
 }
 
 #submitHeader {
