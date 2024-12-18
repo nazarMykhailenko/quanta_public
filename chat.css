@@ -20,6 +20,9 @@
 #responseBody {
 	max-width: 600px; /* Set a maximum width for the response content */
 	margin: 0 auto; /* Center align the response body */
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 /* For inputDiv screen */
@@ -150,8 +153,9 @@
 }
 .response-block.long {
 	flex-direction: column;
+	align-items: start;
+	justify-content: center;
 }
-
 .response-title {
 	font-size: 20px;
 }
